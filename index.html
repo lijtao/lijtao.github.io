@@ -1,1 +1,74 @@
-<h1>GotGitHub's HomePage</h1>It works.
+---
+layout: page
+title: My BooK
+tagline: This book is dedicated, in respect and admiration, to the spirit that lives in the computer.
+---
+
+<p>
+  <a href="http://lijtao.github.io/rss.xml" target="_blank" rel="nofollow" title="RSS">
+    <i class="icon-large icon-fixed-width icon-rss"></i>RSS
+  </a> |
+  <a href="mailto:sand816@161.com" target="_blank" rel="nofollow" title="Email">
+    <i class="icon-large icon-fixed-width icon-envelope"></i>Email
+  </a> |
+  <a href="https://github.com/lijtao" target="_blank" rel="nofollow" title="Github">
+    <i class="icon-large icon-fixed-width icon-github"></i>Github
+  </a> |
+  <a href="http://weibo.com/lijtao" target="_blank" rel="nofollow" title="Weibo">
+    <i class="icon-large icon-fixed-width icon-weibo"></i>Weibo
+  </a>
+</p>
+
+<hr>
+
+{% include JB/setup %}
+<ul class="posts">
+  {% for post in paginator.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+    <blockquote>{{ post.content | strip_html | truncate: 150 }}</blockquote></li>
+  {% endfor %}
+</ul>
+
+<!-- Pagination Links -->
+<section class="pagination pagination-centered">
+  <ul>
+    <!-- First Page -->
+    {% if paginator.previous_page %}
+    <li><a href="/index.html">&laquo;&laquo;</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&laquo;&laquo;</a></li>
+    {% endif %}
+
+    <!-- Previous Page -->
+    {% if paginator.previous_page %}
+    <li>
+      {% if paginator.previous_page == 1 %}
+      <a href="/index.html">&laquo;</a>
+      {% else %}
+      <a href="/page{{ paginator.previous_page }}">&laquo;</a>
+      {% endif %}
+    </li>
+    {% else %}
+    <li class="disabled"><a href="#">&laquo;</a></li>
+    {% endif %}
+
+    <!-- Current Page -->
+    <li class="active">
+      <span class="page_number "> {{ paginator.page }}/{{ paginator.total_pages }} </span>
+    </li>
+
+    <!-- Next Page -->
+    {% if paginator.next_page %}
+    <li><a href="/page{{paginator.next_page}}">&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&raquo;</a></li>
+    {% endif %}
+
+    <!-- Last Page -->
+    {% if paginator.next_page %}
+    <li><a href="/page{{ paginator.total_pages }}">&raquo;&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&raquo;&raquo;</a></li>
+    {% endif %}
+  </ul>
+</section>
