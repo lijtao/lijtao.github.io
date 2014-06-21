@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 过程管理工具
+title: 过程管理工具——Jira
 categories: cs
-tags: [jira,gerrit,git]
+tags: [jira]
 ---
 
 最近在项目中用到了很多这样的结构：有很多记录放在一个 vector 中，然后对这些记录建立了一些索引放在 map 中，大概结构如下：
